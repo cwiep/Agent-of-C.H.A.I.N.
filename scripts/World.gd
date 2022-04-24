@@ -44,7 +44,11 @@ func _target_next_action_point() -> void:
 	
 func _on_Player_area_entered(area: Area2D) -> void:
 	if area.is_in_group("exit"):
-		Global.succeeded()
+		if $Documents.get_child_count() == 0:
+			Global.succeeded()
+		else:
+			print("not all documents collected")
+			Global.failed()
 	elif area.is_in_group("action_point"):
 		_target_next_action_point()
 	elif area.is_in_group("document"):
