@@ -20,10 +20,12 @@ var levels = [
 	"res://scenes/Finish.tscn"
 ]
 var current_level = 0
-var start_time
+var start_time = 0
 
-func _ready():
+func reset():
+	current_level = 0
 	start_time = OS.get_unix_time()
+	_current_state = State.PLANNING
 
 func change_state(state) -> void:
 	_current_state = state
@@ -33,12 +35,10 @@ func get_state():
 
 func failed() -> void:
 	print("failure")
-	# TODO reload level
 	_current_state = State.STOP
 
 func succeeded() -> void:
 	print("success")
-	# TODO load next level
 	_current_state = State.STOP
 	
 func get_next_level():

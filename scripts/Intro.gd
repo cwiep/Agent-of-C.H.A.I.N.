@@ -23,4 +23,5 @@ func _input(event):
 			text = text2
 			length = 0
 		elif next_text:
+			Global.reset()
 			get_tree().change_scene("res://scenes/Tutorial.tscn")
