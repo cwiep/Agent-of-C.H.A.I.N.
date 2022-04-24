@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,14 +8,19 @@
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sfx/wall.png" type="Texture" id=9]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 258.258, 26.5259 )
+
+[sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 69.2957, 57.9564, -69.2957, -57.9564, 336.374, 424.526, -56.6964, 83.1548, 56.6964, -83.1548, 326.294, 170.022, -61.7361, -75.5953, 61.7361, 75.5953, 713.09, 167.502, 93.2342, -95.754, -93.2342, 95.754, 710.57, 420.746, 0, 0, 0, 0, 336.374, 424.526 )
+"points": PoolVector2Array( 0, 0, 0, 0, 159.985, 99.4663, 0, 0, 0, 0, 899.558, 100.726, 0, 0, 0, 0, 900.818, 539.179, 0, 0, 0, 0, 159.985, 537.919, 0, 0, 0, 0, 159.985, 99.4663 )
 }
 
-[node name="Level03" type="Node2D"]
+[node name="Level05" type="Node2D"]
 script = ExtResource( 4 )
+MAX_ACTIONS = 6
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -24,23 +29,49 @@ centered = false
 [node name="Documents" type="Node2D" parent="."]
 
 [node name="Document" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 879.424, 138.59 )
+position = Vector2( 512.787, 76.8538 )
 
 [node name="Document2" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 93.2341, 519.087 )
+position = Vector2( 521.607, 545.546 )
 
 [node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 517.125, 553.33 )
+position = Vector2( 42.1351, 316.465 )
+
+[node name="Wall" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+position = Vector2( 510.268, 185.208 )
+scale = Vector2( 8.12643, 1 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 512.788, 183.948 )
+shape = SubResource( 1 )
+
+[node name="Wall2" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall2"]
+position = Vector2( 502.708, 443.492 )
+scale = Vector2( 8.12643, 1 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 498.929, 443.492 )
+shape = SubResource( 1 )
 
 [node name="GuardPath1" type="Path2D" parent="."]
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
-position = Vector2( 336.374, 424.526 )
-rotation = -2.42998
+position = Vector2( 162.504, 100.726 )
+rotation = -0.0210539
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 74.3353, 93.2342 )
+position = Vector2( 497.669, 321.28 )
 
 [node name="ActionPoints" type="Node2D" parent="."]
 

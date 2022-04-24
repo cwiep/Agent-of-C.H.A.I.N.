@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,14 +8,19 @@
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sfx/wall.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 153.685, 26.5259 )
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 69.2957, 57.9564, -69.2957, -57.9564, 336.374, 424.526, -56.6964, 83.1548, 56.6964, -83.1548, 326.294, 170.022, -61.7361, -75.5953, 61.7361, 75.5953, 713.09, 167.502, 93.2342, -95.754, -93.2342, 95.754, 710.57, 420.746, 0, 0, 0, 0, 336.374, 424.526 )
+"points": PoolVector2Array( 0, 0, 0, 0, 183.923, 133.484, 0, 0, 0, 0, 662.693, 123.405, 0, 0, 0, 0, 677.812, 496.341, 0, 0, 0, 0, 187.703, 491.302, 0, 0, 0, 0, 183.923, 133.484 )
 }
 
-[node name="Level03" type="Node2D"]
+[node name="Level04" type="Node2D"]
 script = ExtResource( 4 )
+MAX_ACTIONS = 4
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -24,23 +29,36 @@ centered = false
 [node name="Documents" type="Node2D" parent="."]
 
 [node name="Document" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 879.424, 138.59 )
+position = Vector2( 863.045, 168.828 )
 
 [node name="Document2" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 93.2341, 519.087 )
+position = Vector2( 414.514, 318.76 )
 
 [node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 517.125, 553.33 )
+position = Vector2( 984.556, 429.858 )
+
+[node name="Wall" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+position = Vector2( 858.636, 346.478 )
+scale = Vector2( 4.95694, 1 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 866.826, 346.478 )
+shape = SubResource( 2 )
 
 [node name="GuardPath1" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
 [node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
-position = Vector2( 336.374, 424.526 )
-rotation = -2.42998
+position = Vector2( 187.703, 136.004 )
+rotation = -2.43
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 74.3353, 93.2342 )
+position = Vector2( 905.883, 544.286 )
 
 [node name="ActionPoints" type="Node2D" parent="."]
 

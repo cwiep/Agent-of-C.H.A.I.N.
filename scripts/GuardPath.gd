@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-export (int) var speed = 1
+export (float) var speed = 1
 
 signal player_seen
 

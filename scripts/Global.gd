@@ -14,6 +14,9 @@ var levels = [
 	"res://scenes/Level02.tscn",
 	"res://scenes/Level03.tscn",
 	"res://scenes/World.tscn",
+	"res://scenes/Level04.tscn",
+	"res://scenes/Level05.tscn",
+	"res://scenes/Level06.tscn",
 	"res://scenes/Finish.tscn"
 ]
 var current_level = 0
