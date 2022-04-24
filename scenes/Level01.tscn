@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Font.tres" type="DynamicFont" id=7]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sfx/mouse_wheel.png" type="Texture" id=9]
+[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.9131, 124.8 )
@@ -72,4 +73,6 @@ __meta__ = {
 }
 
 [node name="UI" parent="." instance=ExtResource( 8 )]
+
+[node name="Audio" parent="." instance=ExtResource( 10 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

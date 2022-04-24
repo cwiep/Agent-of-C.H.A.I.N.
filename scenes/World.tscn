@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sfx/wall.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 93.2087, 24.006 )
@@ -81,5 +82,7 @@ position = Vector2( 244, 408 )
 rotation = -0.734632
 
 [node name="UI" parent="." instance=ExtResource( 8 )]
+
+[node name="Audio" parent="." instance=ExtResource( 9 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
 [connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]

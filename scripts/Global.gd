@@ -17,6 +17,10 @@ var levels = [
 	"res://scenes/Finish.tscn"
 ]
 var current_level = 0
+var start_time
+
+func _ready():
+	start_time = OS.get_unix_time()
 
 func change_state(state) -> void:
 	_current_state = state
@@ -37,3 +41,6 @@ func succeeded() -> void:
 func get_next_level():
 	current_level += 1
 	return levels[current_level]
+
+func get_time():
+	return OS.get_unix_time() - start_time

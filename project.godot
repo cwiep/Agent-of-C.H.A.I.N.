@@ -16,12 +16,17 @@ _global_script_class_icons={
 [application]
 
 config/name="MJD9 - Agent of C.H.A.I.N."
-run/main_scene="res://scenes/Intro.tscn"
+run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 

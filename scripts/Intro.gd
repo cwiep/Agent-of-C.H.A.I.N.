@@ -1,6 +1,6 @@
 extends Node2D
 
-const text = "Welcome, Agent.\nWe will send you to steal some secret documents.\n\nYou will use the\nCarelessly\nHacked\nAction\nInjection\nNibbler\nor C.H.A.I.N. in short."
+const text = "'Welcome, Agent.\nWe will send you to steal some secret documents.\n\nYou will use the\nCarelessly\nHacked\nAction\nInjection\nNibbler\nor C.H.A.I.N. in short.'"
 var counter = 0
 var length = 0
 

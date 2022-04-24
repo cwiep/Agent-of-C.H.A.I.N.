@@ -3,7 +3,7 @@
 [ext_resource path="res://sfx/exit.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29.463, 34.403 )
+extents = Vector2( 33.2385, 37.2346 )
 
 [node name="Exit" type="Area2D" groups=[
 "exit",
