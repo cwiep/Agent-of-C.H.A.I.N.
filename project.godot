@@ -19,6 +19,10 @@ config/name="MJD9 - Agent of C.H.A.I.N."
 run/main_scene="res://scenes/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scripts/Global.gd"
+
 [input]
 
 add_action_point={

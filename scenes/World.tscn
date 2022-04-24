@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/GuardPath.tscn" type="PackedScene" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25, 30 )
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 244, 408, 0, 0, 0, 0, 755, 409, 0, 0, 0, 0, 457, 544, 0, 0, 0, 0, 244, 408 )
+}
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -45,8 +50,14 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 976.949, 558.31 )
 
-[node name="Guard1" parent="." instance=ExtResource( 4 )]
-
 [node name="ActionPoints" type="Node2D" parent="."]
+
+[node name="GuardPath1" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
+position = Vector2( 244, 408 )
+rotation = 0.00195078
+speed = 1
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
-[connection signal="player_seen" from="Guard1" to="." method="_on_player_seen"]
+[connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]
