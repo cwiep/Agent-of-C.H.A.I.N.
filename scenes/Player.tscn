@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://sfx/player.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29, 28 )
+extents = Vector2( 15.7031, 28.2688 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "walk"

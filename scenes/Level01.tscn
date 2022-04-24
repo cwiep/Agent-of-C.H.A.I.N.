@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Exit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://sfx/bg.png" type="Texture" id=5]
+[ext_resource path="res://sfx/wall.png" type="Texture" id=6]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 23.9131, 124.8 )
+
+[node name="Level01" type="Node2D"]
+script = ExtResource( 4 )
+MAX_ACTIONS = 2
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Documents" type="Node2D" parent="."]
+
+[node name="Document" parent="Documents" instance=ExtResource( 1 )]
+position = Vector2( 663.978, 367.896 )
+
+[node name="Exit" parent="." instance=ExtResource( 3 )]
+position = Vector2( 636.817, 553.329 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 86.9345, 432.153 )
+
+[node name="ActionPoints" type="Node2D" parent="."]
+
+[node name="Wall" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+position = Vector2( 527.907, 464.281 )
+scale = Vector2( 1, 4.20886 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 527.907, 463.651 )
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 390.576
+margin_top = 30.2381
+margin_right = 630.576
+margin_bottom = 56.2381
+custom_fonts/font = ExtResource( 7 )
+text = "Don't run into walls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

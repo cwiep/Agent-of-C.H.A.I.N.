@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Exit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://sfx/bg.png" type="Texture" id=6]
+[ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sfx/wall.png" type="Texture" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 347.713, 526.579, 0, 0, 0, 0, 340.153, 143.563, 0, 0, 0, 0, 457.326, 138.524, 0, 0, 0, 0, 449.766, 519.02, 0, 0, 0, 0, 347.713, 526.579 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 23.9131, 136.139 )
+
+[node name="Level02" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Documents" type="Node2D" parent="."]
+
+[node name="Document" parent="Documents" instance=ExtResource( 1 )]
+position = Vector2( 721.934, 417.033 )
+
+[node name="Document2" parent="Documents" instance=ExtResource( 1 )]
+position = Vector2( 398.135, 283.482 )
+
+[node name="Exit" parent="." instance=ExtResource( 3 )]
+position = Vector2( 718.712, 554.589 )
+
+[node name="GuardPath1" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
+position = Vector2( 347.713, 526.579 )
+rotation = -1.59051
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 74.3353, 93.2342 )
+
+[node name="ActionPoints" type="Node2D" parent="."]
+
+[node name="Wall" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+position = Vector2( 599.722, 449.792 )
+scale = Vector2( 1, 4.54353 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 599.722, 447.272 )
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 316.24
+margin_top = 17.6389
+margin_right = 724.24
+margin_bottom = 43.6389
+custom_fonts/font = ExtResource( 5 )
+text = "Pay attention to wandering guards!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]
+[connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

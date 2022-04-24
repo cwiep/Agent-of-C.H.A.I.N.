@@ -8,7 +8,7 @@ var _current_target = null
 var current_speed = MIN_SPEED
 
 func _ready():
-	current_speed = MIN_SPEED
+	current_speed = MIN_SPEED + floor((MAX_SPEED - MIN_SPEED) / 2)
 	
 func _physics_process(delta):
 	if Global.get_state() == Global.State.ACTION:
@@ -18,8 +18,6 @@ func _physics_process(delta):
 			$AnimationPlayer.play("walk")
 		else:
 			$AnimationPlayer.stop()
-			print("no action point left")
-			Global.failed()
 
 func _input(event):
 	if Global.get_state() == Global.State.ACTION:

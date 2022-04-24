@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Font.tres" type="DynamicFont" id=1]
+
+[node name="Finish" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 400.655
+margin_top = 197.808
+margin_right = 580.655
+margin_bottom = 223.808
+custom_fonts/font = ExtResource( 1 )
+text = "Done. Good job!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
