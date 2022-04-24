@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://sfx/bg.png" type="Texture" id=5]
 [ext_resource path="res://sfx/wall.png" type="Texture" id=6]
 [ext_resource path="res://Font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sfx/mouse_wheel.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23.9131, 124.8 )
@@ -22,10 +24,10 @@ centered = false
 [node name="Documents" type="Node2D" parent="."]
 
 [node name="Document" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 663.978, 367.896 )
+position = Vector2( 844.147, 362.857 )
 
 [node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 636.817, 553.329 )
+position = Vector2( 816.986, 548.29 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 86.9345, 432.153 )
@@ -35,12 +37,12 @@ position = Vector2( 86.9345, 432.153 )
 [node name="Wall" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Wall"]
-position = Vector2( 527.907, 464.281 )
+position = Vector2( 708.076, 459.241 )
 scale = Vector2( 1, 4.20886 )
 texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 527.907, 463.651 )
+position = Vector2( 708.076, 458.611 )
 shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
@@ -53,4 +55,21 @@ text = "Don't run into walls"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MiddleMouse" type="Sprite" parent="."]
+position = Vector2( 420.814, 546.806 )
+texture = ExtResource( 9 )
+
+[node name="MiddleMouse2" type="Label" parent="."]
+margin_left = 464.911
+margin_top = 532.947
+margin_right = 620.911
+margin_bottom = 560.947
+custom_fonts/font = ExtResource( 7 )
+text = "Adjust Speed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" parent="." instance=ExtResource( 8 )]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

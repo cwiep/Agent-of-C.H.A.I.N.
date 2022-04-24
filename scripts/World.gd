@@ -9,6 +9,8 @@ var available_actions
 func _ready() -> void:
 	Global.change_state(Global.State.PLANNING)
 	available_actions = MAX_ACTIONS
+	$UI.show()
+	$UI/Count.text = str(available_actions)
 	
 func _input(event: InputEvent) -> void:
 	if Global.get_state() == Global.State.PLANNING:
@@ -18,10 +20,12 @@ func _input(event: InputEvent) -> void:
 				available_actions -= 1
 			elif available_actions == 0:
 				Global.change_state(Global.State.ACTION)
+				$UI.hide()
 				$Player.set_target($ActionPoints.get_child(0))
 		elif event.is_action_pressed("remove_action_point") and !event.is_echo():
 			if available_actions < MAX_ACTIONS:
 				_remove_last_action_point()
+		$UI/Count.text = str(available_actions)
 
 func _spawn_action_point(coords: Vector2) -> void:
 	var point = action_point_scene.instance()
