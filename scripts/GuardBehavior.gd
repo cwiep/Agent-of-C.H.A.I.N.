@@ -8,3 +8,4 @@ func _physics_process(delta):
 	path.offset += path.speed
 	# the guard itself must not rotate... this is terrible
 	rotation = -path.rotation
+	$AnimationPlayer.play("walk")

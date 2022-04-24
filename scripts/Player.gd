@@ -15,7 +15,9 @@ func _physics_process(delta):
 		if _current_target:
 			var velocity = global_position.direction_to(_current_target.global_position) * current_speed
 			global_position += velocity
+			$AnimationPlayer.play("walk")
 		else:
+			$AnimationPlayer.stop()
 			print("no action point left")
 			Global.failed()
 
