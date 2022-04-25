@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg.png-b5615373b976b22b270b9c7d5238cfca.stex"
+path="res://.import/action_point.png-e0484519d66de870504bf3de57837d5e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sfx/bg.png"
-dest_files=[ "res://.import/bg.png-b5615373b976b22b270b9c7d5238cfca.stex" ]
+source_file="res://graphics/action_point.png"
+dest_files=[ "res://.import/action_point.png-e0484519d66de870504bf3de57837d5e.stex" ]
 
 [params]
 

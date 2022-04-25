@@ -2,9 +2,9 @@
 
 [ext_resource path="res://scripts/Intro.gd" type="Script" id=1]
 [ext_resource path="res://Font.tres" type="DynamicFont" id=2]
-[ext_resource path="res://sfx/wall.png" type="Texture" id=3]
-[ext_resource path="res://sfx/left_click.png" type="Texture" id=4]
-[ext_resource path="res://sfx/professior.png" type="Texture" id=5]
+[ext_resource path="res://graphics/wall.png" type="Texture" id=3]
+[ext_resource path="res://graphics/left_click.png" type="Texture" id=4]
+[ext_resource path="res://graphics/professior.png" type="Texture" id=5]
 
 [node name="Intro" type="Node2D"]
 script = ExtResource( 1 )

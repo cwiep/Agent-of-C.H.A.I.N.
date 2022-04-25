@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/guard.png-227fb2dcdc5ae10d2353c9c451affca6.stex"
+path="res://.import/guard.png-f4d3dded3cf2b6599b296a552495a4c1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sfx/guard.png"
-dest_files=[ "res://.import/guard.png-227fb2dcdc5ae10d2353c9c451affca6.stex" ]
+source_file="res://graphics/guard.png"
+dest_files=[ "res://.import/guard.png-f4d3dded3cf2b6599b296a552495a4c1.stex" ]
 
 [params]
 

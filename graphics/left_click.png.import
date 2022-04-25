@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/left_click.png-d25514b72fbd8f392bd4019358c88e3c.stex"
+path="res://.import/left_click.png-ca705a9d831fd2f852a3c8bf4ec8a4e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sfx/left_click.png"
-dest_files=[ "res://.import/left_click.png-d25514b72fbd8f392bd4019358c88e3c.stex" ]
+source_file="res://graphics/left_click.png"
+dest_files=[ "res://.import/left_click.png-ca705a9d831fd2f852a3c8bf4ec8a4e4.stex" ]
 
 [params]
 

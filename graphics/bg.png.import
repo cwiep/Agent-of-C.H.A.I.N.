@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/professior.png-5b307bd17ea45a9fe307770f2e195cbd.stex"
+path="res://.import/bg.png-af22aab29d4276e7fdc8974f36cc0ab0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sfx/professior.png"
-dest_files=[ "res://.import/professior.png-5b307bd17ea45a9fe307770f2e195cbd.stex" ]
+source_file="res://graphics/bg.png"
+dest_files=[ "res://.import/bg.png-af22aab29d4276e7fdc8974f36cc0ab0.stex" ]
 
 [params]
 

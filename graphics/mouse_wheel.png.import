@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/document.png-4dd9ef507e500e548d4def26bc6a84a9.stex"
+path="res://.import/mouse_wheel.png-523fc6783205d3723fb94b60341f7e75.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sfx/document.png"
-dest_files=[ "res://.import/document.png-4dd9ef507e500e548d4def26bc6a84a9.stex" ]
+source_file="res://graphics/mouse_wheel.png"
+dest_files=[ "res://.import/mouse_wheel.png-523fc6783205d3723fb94b60341f7e75.stex" ]
 
 [params]
 
