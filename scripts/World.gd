@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 
 func _spawn_action_point(coords: Vector2) -> void:
 	var point = action_point_scene.instance()
+	point.count = MAX_ACTIONS - available_actions + 1
 	$ActionPoints.add_child(point)
 	point.global_position = coords
 	
