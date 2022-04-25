@@ -76,6 +76,7 @@ func _on_Player_area_entered(area: Area2D) -> void:
 func _retry():
 	Global.failed()
 	$Audio.hurt()
+	yield($Audio, "audio_finished")
 	get_tree().reload_current_scene()
 
 func _on_player_seen():
