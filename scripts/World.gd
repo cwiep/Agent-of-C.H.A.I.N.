@@ -12,6 +12,11 @@ func _ready() -> void:
 	$UI.show()
 	$UI/Count.text = str(available_actions)
 	
+func _physics_process(_delta):
+	if Global.get_state() == Global.State.ACTION:
+		if $Player.get_target().global_position.distance_to($Player.global_position) < 6:
+			_target_next_action_point()
+
 func _input(event: InputEvent) -> void:
 	if Global.get_state() == Global.State.PLANNING:
 		if event.is_action_pressed("add_action_point") and !event.is_echo():
@@ -63,8 +68,6 @@ func _on_Player_area_entered(area: Area2D) -> void:
 		else:
 			print("not all documents collected")
 			_retry()
-	elif area.is_in_group("action_point"):
-		_target_next_action_point()
 	elif area.is_in_group("document"):
 		$Audio.document()
 		area.get_parent().remove_child(area)
