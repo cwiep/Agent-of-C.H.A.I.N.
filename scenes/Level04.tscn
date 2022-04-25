@@ -1,25 +1,29 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Exit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/World.gd" type="Script" id=4]
+[ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Exit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sfx/bg.png" type="Texture" id=5]
-[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sfx/wall.png" type="Texture" id=6]
 [ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sfx/wall.png" type="Texture" id=9]
+[ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 93.2087, 24.006 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 153.685, 26.5259 )
+extents = Vector2( 23.913, 59.2838 )
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Curve2D" id=3]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 183.923, 133.484, 0, 0, 0, 0, 662.693, 123.405, 0, 0, 0, 0, 677.812, 496.341, 0, 0, 0, 0, 187.703, 491.302, 0, 0, 0, 0, 183.923, 133.484 )
+"points": PoolVector2Array( 0, 0, 0, 0, 244, 408, 0, 0, 0, 0, 510.243, 167.502, 0, 0, 0, 0, 730.729, 395.548, 0, 0, 0, 0, 457, 544, 0, 0, 0, 0, 244, 408 )
 }
 
 [node name="Level04" type="Node2D"]
-script = ExtResource( 4 )
+script = ExtResource( 1 )
 MAX_ACTIONS = 4
 
 [node name="Background" type="Sprite" parent="."]
@@ -28,42 +32,69 @@ centered = false
 
 [node name="Documents" type="Node2D" parent="."]
 
-[node name="Document" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 863.045, 168.828 )
+[node name="Document" parent="Documents" instance=ExtResource( 3 )]
+position = Vector2( 99.028, 232.325 )
 
-[node name="Document2" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 414.514, 318.76 )
+[node name="Document2" parent="Documents" instance=ExtResource( 3 )]
+position = Vector2( 762.754, 93.8651 )
 
-[node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 984.556, 429.858 )
+[node name="Document3" parent="Documents" instance=ExtResource( 3 )]
+position = Vector2( 499.007, 545.623 )
 
 [node name="Wall" type="Area2D" parent="." groups=[
 "wall",
 ]]
 
 [node name="Sprite" type="Sprite" parent="Wall"]
-position = Vector2( 858.636, 346.478 )
-scale = Vector2( 4.95694, 1 )
-texture = ExtResource( 9 )
+position = Vector2( 483.18, 367.897 )
+scale = Vector2( 3.146, 1 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 866.826, 346.478 )
+position = Vector2( 483.81, 367.897 )
+shape = SubResource( 1 )
+
+[node name="Wall2" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall2"]
+position = Vector2( 604.762, 74.3353 )
+scale = Vector2( 1, 2.142 )
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 604.762, 73.0754 )
 shape = SubResource( 2 )
 
-[node name="GuardPath1" type="Path2D" parent="."]
-curve = SubResource( 1 )
-
-[node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
-position = Vector2( 187.703, 136.004 )
-rotation = -2.43
+[node name="Exit" parent="." instance=ExtResource( 4 )]
+position = Vector2( 694.774, 45.5813 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 905.883, 544.286 )
+position = Vector2( 976.949, 558.31 )
+
+[node name="GuardPath1" type="Path2D" parent="."]
+curve = SubResource( 3 )
+
+[node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
+position = Vector2( 244, 408 )
+rotation = -0.734632
 
 [node name="ActionPoints" type="Node2D" parent="."]
 
-[node name="UI" parent="." instance=ExtResource( 6 )]
+[node name="UI" parent="." instance=ExtResource( 8 )]
 
-[node name="Audio" parent="." instance=ExtResource( 8 )]
-[connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]
+[node name="Audio" parent="." instance=ExtResource( 9 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 469.95
+margin_top = 15.119
+margin_right = 560.95
+margin_bottom = 43.119
+custom_fonts/font = ExtResource( 10 )
+text = "Level 4"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]
+[connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]

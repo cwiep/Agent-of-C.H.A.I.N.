@@ -33,12 +33,12 @@ position = Vector2( 80.6349, 298.601 )
 [node name="ActionPoints" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 182.427
-margin_top = 39.8195
-margin_right = 822.427
-margin_bottom = 81.8195
+margin_left = 193.13
+margin_top = 21.9814
+margin_right = 833.13
+margin_bottom = 80.9814
 custom_fonts/font = ExtResource( 5 )
-text = "Collect all documents and reach the exit using the available Action Points"
+text = "Tutorial: Collect all documents and reach the exit using the available Action Points"
 align = 1
 valign = 1
 autowrap = true

@@ -47,8 +47,6 @@ rotation = -1.59051
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 74.3353, 93.2342 )
 
-[node name="ActionPoints" type="Node2D" parent="."]
-
 [node name="Wall" type="Area2D" parent="." groups=[
 "wall",
 ]]
@@ -62,13 +60,15 @@ texture = ExtResource( 8 )
 position = Vector2( 599.722, 447.272 )
 shape = SubResource( 2 )
 
+[node name="ActionPoints" type="Node2D" parent="."]
+
 [node name="Label" type="Label" parent="."]
-margin_left = 316.24
-margin_top = 17.6389
-margin_right = 724.24
-margin_bottom = 43.6389
+margin_left = 245.685
+margin_top = 26.4583
+margin_right = 804.685
+margin_bottom = 54.4583
 custom_fonts/font = ExtResource( 5 )
-text = "Pay attention to wandering guards!"
+text = "Level 2: Pay attention to wandering guards!"
 __meta__ = {
 "_edit_use_anchors_": false
 }

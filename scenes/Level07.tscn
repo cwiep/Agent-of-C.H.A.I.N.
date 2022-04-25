@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,10 +12,15 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 69.2957, 57.9564, -69.2957, -57.9564, 336.374, 424.526, -56.6964, 83.1548, 56.6964, -83.1548, 326.294, 170.022, -61.7361, -75.5953, 61.7361, 75.5953, 713.09, 167.502, 93.2342, -95.754, -93.2342, 95.754, 710.57, 420.746, 0, 0, 0, 0, 336.374, 424.526 )
+"points": PoolVector2Array( 0, 0, 0, 0, 234.854, 74.2678, 0, 0, 0, 0, 266.352, 71.748, 0, 0, 0, 0, 267.612, 517.76, 0, 0, 0, 0, 234.854, 516.5, 0, 0, 0, 0, 234.854, 74.2678 )
 }
 
-[node name="Level03" type="Node2D"]
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 740.808, 511.46, 0, 0, 0, 0, 690.411, 510.201, 0, 0, 0, 0, 690.411, 73.0079, 0, 0, 0, 0, 740.808, 73.0079, 0, 0, 0, 0, 740.808, 511.46 )
+}
+
+[node name="Level06" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -25,23 +30,37 @@ centered = false
 [node name="Documents" type="Node2D" parent="."]
 
 [node name="Document" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 879.424, 138.59 )
+position = Vector2( 793.749, 267.102 )
 
 [node name="Document2" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 93.2341, 519.087 )
+position = Vector2( 235.605, 314.98 )
+
+[node name="Document3" parent="Documents" instance=ExtResource( 1 )]
+position = Vector2( 527.907, 516.567 )
+
+[node name="Document4" parent="Documents" instance=ExtResource( 1 )]
+position = Vector2( 511.528, 93.2337 )
 
 [node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 517.125, 553.33 )
+position = Vector2( 983.296, 302.606 )
 
 [node name="GuardPath1" type="Path2D" parent="."]
+position = Vector2( 99, 0 )
 curve = SubResource( 1 )
 
 [node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
-position = Vector2( 336.374, 424.526 )
-rotation = -2.43
+position = Vector2( 234.854, 74.2678 )
+rotation = -0.0798276
+
+[node name="GuardPath2" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="Guard2" parent="GuardPath2" instance=ExtResource( 7 )]
+position = Vector2( 740.808, 511.46 )
+rotation = -3.11661
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 74.3353, 93.2342 )
+position = Vector2( 54.1766, 239.385 )
 
 [node name="ActionPoints" type="Node2D" parent="."]
 
@@ -50,14 +69,15 @@ position = Vector2( 74.3353, 93.2342 )
 [node name="Audio" parent="." instance=ExtResource( 8 )]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 468.69
-margin_top = 22.6786
-margin_right = 559.69
-margin_bottom = 50.6786
+margin_left = 471.21
+margin_top = 15.119
+margin_right = 562.21
+margin_bottom = 43.119
 custom_fonts/font = ExtResource( 9 )
-text = "Level 3"
+text = "Level 7"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]
+[connection signal="player_seen" from="GuardPath2/Guard2" to="." method="_on_player_seen"]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

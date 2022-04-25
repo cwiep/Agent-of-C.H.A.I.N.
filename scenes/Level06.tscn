@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Document.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -8,19 +8,20 @@
 [ext_resource path="res://scenes/UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Guard.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sfx/wall.png" type="Texture" id=9]
+[ext_resource path="res://Font.tres" type="DynamicFont" id=10]
 
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 234.854, 74.2678, 0, 0, 0, 0, 266.352, 71.748, 0, 0, 0, 0, 267.612, 517.76, 0, 0, 0, 0, 234.854, 516.5, 0, 0, 0, 0, 234.854, 74.2678 )
-}
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 258.258, 26.5259 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 740.808, 511.46, 0, 0, 0, 0, 690.411, 510.201, 0, 0, 0, 0, 690.411, 73.0079, 0, 0, 0, 0, 740.808, 73.0079, 0, 0, 0, 0, 740.808, 511.46 )
+"points": PoolVector2Array( 0, 0, 0, 0, 159.985, 99.4663, 0, 0, 0, 0, 899.558, 100.726, 0, 0, 0, 0, 900.818, 539.179, 0, 0, 0, 0, 159.985, 537.919, 0, 0, 0, 0, 159.985, 99.4663 )
 }
 
-[node name="Level06" type="Node2D"]
+[node name="Level05" type="Node2D"]
 script = ExtResource( 4 )
+MAX_ACTIONS = 6
 
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 5 )
@@ -29,42 +30,65 @@ centered = false
 [node name="Documents" type="Node2D" parent="."]
 
 [node name="Document" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 793.749, 267.102 )
+position = Vector2( 512.787, 76.8538 )
 
 [node name="Document2" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 235.605, 314.98 )
-
-[node name="Document3" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 527.907, 516.567 )
-
-[node name="Document4" parent="Documents" instance=ExtResource( 1 )]
-position = Vector2( 511.528, 93.2337 )
+position = Vector2( 521.607, 545.546 )
 
 [node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 983.296, 302.606 )
+position = Vector2( 42.1351, 316.465 )
+
+[node name="Wall" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall"]
+position = Vector2( 510.268, 185.208 )
+scale = Vector2( 8.12643, 1 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 512.788, 183.948 )
+shape = SubResource( 1 )
+
+[node name="Wall2" type="Area2D" parent="." groups=[
+"wall",
+]]
+
+[node name="Sprite" type="Sprite" parent="Wall2"]
+position = Vector2( 502.708, 443.492 )
+scale = Vector2( 8.12643, 1 )
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 498.929, 443.492 )
+shape = SubResource( 1 )
 
 [node name="GuardPath1" type="Path2D" parent="."]
-position = Vector2( 99, 0 )
-curve = SubResource( 1 )
-
-[node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
-position = Vector2( 234.32, 76.7878 )
-rotation = -2.43
-
-[node name="GuardPath2" type="Path2D" parent="."]
 curve = SubResource( 2 )
 
-[node name="Guard2" parent="GuardPath2" instance=ExtResource( 7 )]
-position = Vector2( 739.574, 510.268 )
+[node name="Guard" parent="GuardPath1" instance=ExtResource( 7 )]
+position = Vector2( 159.985, 99.4663 )
+rotation = 0.00169975
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 54.1766, 239.385 )
+position = Vector2( 497.669, 321.28 )
 
 [node name="ActionPoints" type="Node2D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource( 6 )]
 
 [node name="Audio" parent="." instance=ExtResource( 8 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 462.391
+margin_top = 13.8591
+margin_right = 553.391
+margin_bottom = 41.8591
+custom_fonts/font = ExtResource( 10 )
+text = "Level 6"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="player_seen" from="GuardPath1/Guard" to="." method="_on_player_seen"]
-[connection signal="player_seen" from="GuardPath2/Guard2" to="." method="_on_player_seen"]
 [connection signal="area_entered" from="Player" to="." method="_on_Player_area_entered"]

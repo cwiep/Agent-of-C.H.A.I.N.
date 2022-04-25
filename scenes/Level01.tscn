@@ -33,9 +33,9 @@ position = Vector2( 816.986, 548.29 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 86.9345, 432.153 )
 
-[node name="ActionPoints" type="Node2D" parent="."]
-
-[node name="Wall" type="Area2D" parent="."]
+[node name="Wall" type="Area2D" parent="." groups=[
+"wall",
+]]
 
 [node name="Sprite" type="Sprite" parent="Wall"]
 position = Vector2( 708.076, 459.241 )
@@ -46,13 +46,15 @@ texture = ExtResource( 6 )
 position = Vector2( 708.076, 458.611 )
 shape = SubResource( 1 )
 
+[node name="ActionPoints" type="Node2D" parent="."]
+
 [node name="Label" type="Label" parent="."]
-margin_left = 390.576
+margin_left = 330.1
 margin_top = 30.2381
-margin_right = 630.576
-margin_bottom = 56.2381
+margin_right = 707.1
+margin_bottom = 58.2381
 custom_fonts/font = ExtResource( 7 )
-text = "Don't run into walls"
+text = "Level 1: Don't run into walls"
 __meta__ = {
 "_edit_use_anchors_": false
 }
