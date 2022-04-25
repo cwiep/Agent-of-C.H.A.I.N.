@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="MJD9 - Agent of C.H.A.I.N."
 run/main_scene="res://scenes/Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://graphics/document.png"
 
 [autoload]
 
